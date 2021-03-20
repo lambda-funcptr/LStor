@@ -1,9 +1,9 @@
 
 - hosts: "{{ lstor_target }}"
   become: yes
+  tasks:
     - name: "Copy over binaries"
       copy:
-        src: bin
-        dest: /opt/lstor/bin
-
-    - name: Restart to allow kernel to 
+        src: ../bin
+        dest: /opt/lstor
+        mode: u+rwx,g+rw,a+r

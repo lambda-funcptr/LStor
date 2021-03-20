@@ -12,3 +12,8 @@
           - bcachefs-tools
           - linux-bcachefs
         update_cache: yes
+      register: bcachefs_installed
+
+    - name: Reboot if bcachefs is installed...
+      reboot: {}
+      when: bcachefs_installed.changed
