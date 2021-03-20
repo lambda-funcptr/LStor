@@ -1,4 +1,4 @@
-- hosts: "{{ target }}"
+- hosts: "{{ lstor_target }}"
   become: yes
   tasks:
     - name: "Add bcacehfs-testing PPA"
@@ -6,9 +6,9 @@
         repo: "ppa:raof/bcachefs"
         state: present
 
-    - name: "Update apt"
+    - name: "Install required packages"
       apt:
         name:
           - bcachefs-tools
-          - linux-5.10.0+bcachefs.git20210316.9482cfb5-1.1
+          - linux-bcachefs
         update_cache: yes
